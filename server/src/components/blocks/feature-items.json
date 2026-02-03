@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_blocks_feature_items",
+  "info": {
+    "displayName": "FeatureItems",
+    "icon": "stack"
+  },
+  "options": {},
+  "attributes": {
+    "items": {
+      "type": "component",
+      "component": "items.feature-item",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

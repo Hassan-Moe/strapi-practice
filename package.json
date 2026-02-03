@@ -1,0 +1,12 @@
+{
+  "name": "strapi-practice",
+  "version": "1.0.0",
+  "description": "full-stack strapi setup",
+  "license": "ISC",
+  "author": "Hassan Mohamed",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
