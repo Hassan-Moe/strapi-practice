@@ -52,14 +52,6 @@ export async function getLayoutProps(
       announcementBarQuery,
     ]);
 
-    console.log({
-      layout: {
-        headerRes,
-        footerRes,
-        announcementBarRes,
-      },
-    });
-
     // Return the combined results
     return {
       header: headerRes?.data?.header ?? null,

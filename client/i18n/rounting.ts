@@ -7,5 +7,5 @@ export const locales = ["en", "ar"];
 export const routing = defineRouting({
   locales,
   defaultLocale,
-  localePrefix: "as-needed",
+  localePrefix: "always",
 });

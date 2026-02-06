@@ -38,6 +38,8 @@ interface ButtonAsLink extends BaseButtonProps {
 
 type ButtonProps = ButtonAsButton | ButtonAsLink;
 
+const MotionLink = motion.create(Link);
+
 export default function Button({
   variant = "primary",
   size = "md",
@@ -96,8 +98,6 @@ export default function Button({
 
   const isDisabled = disabled || loading;
 
-  const isIconOnly = !children && (startIcon || endIcon || loading);
-
   const content = (
     <div className="flex items-center gap-2">
       {loading && <Loader2 className={`${iconSizes[size]} animate-spin`} />}
@@ -140,19 +140,19 @@ export default function Button({
     }
 
     return (
-      <Link href={href} target={target} passHref legacyBehavior>
-        <motion.a
-          onClick={onClick}
-          className={combinedClassName}
-          {...(!isDisabled && {
-            whileHover: { scale: 1.01 },
-            whileTap: { scale: 0.98 },
-          })}
-          aria-disabled={isDisabled}
-        >
-          {content}
-        </motion.a>
-      </Link>
+      <MotionLink
+        href={href}
+        target={target}
+        onClick={onClick}
+        className={combinedClassName}
+        {...(!isDisabled && {
+          whileHover: { scale: 1.01 },
+          whileTap: { scale: 0.98 },
+        })}
+        aria-disabled={isDisabled}
+      >
+        {content}
+      </MotionLink>
     );
   }
 

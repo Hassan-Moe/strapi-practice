@@ -1395,12 +1395,7 @@ export type IGenF_ButtonFragment = { __typename?: 'ComponentAtomsButton', href: 
 
 export type IGenF_MediaFragment = { __typename?: 'UploadFile', url: string, name: string, mime: string, alternativeText: string | null };
 
-export type IGenF_PageFragment = { __typename?: 'Page', title: string, slug: string, seo: { __typename?: 'ComponentSeoMetaData', description: string | null, id: string, longNavigationName: string | null, ogDescription: string | null, ogTitle: string | null, shortNavigationName: string | null, title: string | null, ogImage: { __typename?: 'UploadFile', url: string, name: string, mime: string, alternativeText: string | null } | null } | null, sections: Array<
-    | { __typename?: 'ComponentMoleculesTextMediaSection', id: string, title: string | null, subtitle: string | null, content: any | null, image: { __typename?: 'UploadFile', url: string, name: string, mime: string, alternativeText: string | null } | null, button: { __typename?: 'ComponentAtomsButton', href: string | null, id: string, isNewTab: boolean | null, label: string, ariaLabel: string | null, startIcon: { __typename?: 'UploadFile', url: string, name: string, mime: string, alternativeText: string | null } | null, endIcon: { __typename?: 'UploadFile', url: string, name: string, mime: string, alternativeText: string | null } | null } | null }
-    | { __typename?: 'ComponentOrganismsCardsSwiperSection', id: string, title: string | null, subtitle: string | null, maxColumns: number | null, items: Array<{ __typename?: 'ComponentMoleculesCard', id: string, title: string | null, subtitle: string | null, variant: IGenEnum_Componentmoleculescard_Variant | null, media: { __typename?: 'UploadFile', url: string, name: string, mime: string, alternativeText: string | null } | null, button: { __typename?: 'ComponentAtomsButton', href: string | null, id: string, isNewTab: boolean | null, label: string, ariaLabel: string | null, startIcon: { __typename?: 'UploadFile', url: string, name: string, mime: string, alternativeText: string | null } | null, endIcon: { __typename?: 'UploadFile', url: string, name: string, mime: string, alternativeText: string | null } | null } | null } | null> | null }
-    | { __typename?: 'ComponentOrganismsHeroSection', id: string, slides: Array<{ __typename?: 'ComponentMoleculesHeroSlide', id: string, title: string | null, subtitle: string | null, button: { __typename?: 'ComponentAtomsButton', href: string | null, id: string, isNewTab: boolean | null, label: string, ariaLabel: string | null, startIcon: { __typename?: 'UploadFile', url: string, name: string, mime: string, alternativeText: string | null } | null, endIcon: { __typename?: 'UploadFile', url: string, name: string, mime: string, alternativeText: string | null } | null } | null, slideMedia: { __typename?: 'UploadFile', url: string, name: string, mime: string, alternativeText: string | null } | null } | null> | null }
-    | { __typename?: 'Error' }
-   | null> | null };
+export type IGenF_PageFragment = { __typename?: 'Page', title: string, slug: string };
 
 export type IGenF_SeoFragment = { __typename?: 'ComponentSeoMetaData', description: string | null, id: string, longNavigationName: string | null, ogDescription: string | null, ogTitle: string | null, shortNavigationName: string | null, title: string | null, ogImage: { __typename?: 'UploadFile', url: string, name: string, mime: string, alternativeText: string | null } | null };
 
@@ -1436,18 +1431,8 @@ export type IGenQ_Page_By_SlugQueryVariables = Exact<{
 }>;
 
 
-export type IGenQ_Page_By_SlugQuery = { __typename?: 'Query', pages: Array<{ __typename?: 'Page', title: string, slug: string, seo: { __typename?: 'ComponentSeoMetaData', description: string | null, id: string, longNavigationName: string | null, ogDescription: string | null, ogTitle: string | null, shortNavigationName: string | null, title: string | null, ogImage: { __typename?: 'UploadFile', url: string, name: string, mime: string, alternativeText: string | null } | null } | null, sections: Array<
-      | { __typename?: 'ComponentMoleculesTextMediaSection', id: string, title: string | null, subtitle: string | null, content: any | null, image: { __typename?: 'UploadFile', url: string, name: string, mime: string, alternativeText: string | null } | null, button: { __typename?: 'ComponentAtomsButton', href: string | null, id: string, isNewTab: boolean | null, label: string, ariaLabel: string | null, startIcon: { __typename?: 'UploadFile', url: string, name: string, mime: string, alternativeText: string | null } | null, endIcon: { __typename?: 'UploadFile', url: string, name: string, mime: string, alternativeText: string | null } | null } | null }
-      | { __typename?: 'ComponentOrganismsCardsSwiperSection', id: string, title: string | null, subtitle: string | null, maxColumns: number | null, items: Array<{ __typename?: 'ComponentMoleculesCard', id: string, title: string | null, subtitle: string | null, variant: IGenEnum_Componentmoleculescard_Variant | null, media: { __typename?: 'UploadFile', url: string, name: string, mime: string, alternativeText: string | null } | null, button: { __typename?: 'ComponentAtomsButton', href: string | null, id: string, isNewTab: boolean | null, label: string, ariaLabel: string | null, startIcon: { __typename?: 'UploadFile', url: string, name: string, mime: string, alternativeText: string | null } | null, endIcon: { __typename?: 'UploadFile', url: string, name: string, mime: string, alternativeText: string | null } | null } | null } | null> | null }
-      | { __typename?: 'ComponentOrganismsHeroSection', id: string, slides: Array<{ __typename?: 'ComponentMoleculesHeroSlide', id: string, title: string | null, subtitle: string | null, button: { __typename?: 'ComponentAtomsButton', href: string | null, id: string, isNewTab: boolean | null, label: string, ariaLabel: string | null, startIcon: { __typename?: 'UploadFile', url: string, name: string, mime: string, alternativeText: string | null } | null, endIcon: { __typename?: 'UploadFile', url: string, name: string, mime: string, alternativeText: string | null } | null } | null, slideMedia: { __typename?: 'UploadFile', url: string, name: string, mime: string, alternativeText: string | null } | null } | null> | null }
-      | { __typename?: 'Error' }
-     | null> | null } | null> };
+export type IGenQ_Page_By_SlugQuery = { __typename?: 'Query', pages: Array<{ __typename?: 'Page', title: string, slug: string } | null> };
 
-export const F_Announcement_BarFragmentDoc = gql`
-    fragment f_announcement_bar on AnnouncementBar {
-  text
-}
-    `;
 export const F_MediaFragmentDoc = gql`
     fragment f_media on UploadFile {
   url
@@ -1456,20 +1441,6 @@ export const F_MediaFragmentDoc = gql`
   alternativeText
 }
     `;
-export const F_SeoFragmentDoc = gql`
-    fragment f_seo on ComponentSeoMetaData {
-  description
-  id
-  longNavigationName
-  ogDescription
-  ogImage {
-    ...f_media
-  }
-  ogTitle
-  shortNavigationName
-  title
-}
-    ${F_MediaFragmentDoc}`;
 export const F_ButtonFragmentDoc = gql`
     fragment f_button on ComponentAtomsButton {
   href
@@ -1485,28 +1456,6 @@ export const F_ButtonFragmentDoc = gql`
   }
 }
     ${F_MediaFragmentDoc}`;
-export const F_Hero_SlideFragmentDoc = gql`
-    fragment f_hero_slide on ComponentMoleculesHeroSlide {
-  id
-  title
-  subtitle
-  button {
-    ...f_button
-  }
-  slideMedia {
-    ...f_media
-  }
-}
-    ${F_ButtonFragmentDoc}
-${F_MediaFragmentDoc}`;
-export const F_Hero_SectionFragmentDoc = gql`
-    fragment f_hero_section on ComponentOrganismsHeroSection {
-  id
-  slides {
-    ...f_hero_slide
-  }
-}
-    ${F_Hero_SlideFragmentDoc}`;
 export const F_CardFragmentDoc = gql`
     fragment f_card on ComponentMoleculesCard {
   id
@@ -1533,6 +1482,28 @@ export const F_Cards_SwiperFragmentDoc = gql`
   maxColumns
 }
     ${F_CardFragmentDoc}`;
+export const F_Hero_SlideFragmentDoc = gql`
+    fragment f_hero_slide on ComponentMoleculesHeroSlide {
+  id
+  title
+  subtitle
+  button {
+    ...f_button
+  }
+  slideMedia {
+    ...f_media
+  }
+}
+    ${F_ButtonFragmentDoc}
+${F_MediaFragmentDoc}`;
+export const F_Hero_SectionFragmentDoc = gql`
+    fragment f_hero_section on ComponentOrganismsHeroSection {
+  id
+  slides {
+    ...f_hero_slide
+  }
+}
+    ${F_Hero_SlideFragmentDoc}`;
 export const F_Text_MediaFragmentDoc = gql`
     fragment f_text_media on ComponentMoleculesTextMediaSection {
   id
@@ -1548,30 +1519,38 @@ export const F_Text_MediaFragmentDoc = gql`
 }
     ${F_MediaFragmentDoc}
 ${F_ButtonFragmentDoc}`;
+export const F_Announcement_BarFragmentDoc = gql`
+    fragment f_announcement_bar on AnnouncementBar {
+  text
+}
+    `;
 export const F_PageFragmentDoc = gql`
     fragment f_page on Page {
   title
   slug
-  seo {
-    ...f_seo
-  }
-  sections {
-    ...f_hero_section
-    ...f_cards_swiper
-    ...f_text_media
-  }
 }
-    ${F_SeoFragmentDoc}
-${F_Hero_SectionFragmentDoc}
-${F_Cards_SwiperFragmentDoc}
-${F_Text_MediaFragmentDoc}`;
+    `;
+export const F_SeoFragmentDoc = gql`
+    fragment f_seo on ComponentSeoMetaData {
+  description
+  id
+  longNavigationName
+  ogDescription
+  ogImage {
+    ...f_media
+  }
+  ogTitle
+  shortNavigationName
+  title
+}
+    ${F_MediaFragmentDoc}`;
 export const AnnouncementBarDocument = gql`
     query AnnouncementBar($locale: I18NLocaleCode) {
   announcementBar(locale: $locale) {
-    ...f_announcement_bar
+    text
   }
 }
-    ${F_Announcement_BarFragmentDoc}`;
+    `;
 
 /**
  * __useAnnouncementBarQuery__

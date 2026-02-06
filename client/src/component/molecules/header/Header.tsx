@@ -45,6 +45,7 @@ export const Header: React.FunctionComponent<IProps> = ({
                   ) : null
                 }
                 key={item?.id}
+                href={item?.href ?? "#"}
               >
                 {item.label}
               </Button>

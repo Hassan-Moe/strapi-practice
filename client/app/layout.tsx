@@ -9,7 +9,7 @@ import { ITheme } from "@/stores/ui/useThemeStore";
 const italiana = Italiana({
   variable: "--font-italiana",
   subsets: ["latin"],
-  weight: "400", // Italiana is only 400
+  weight: ["400"], // Italiana is only 400
 });
 
 export default async function RootLayout({
