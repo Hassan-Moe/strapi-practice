@@ -1,3 +1,4 @@
+import { Page } from "@/layouts/Page";
 import { getPageProps } from "@/services/content/getPageProps";
 import { getLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -16,5 +17,5 @@ export default async function NextjsPage({
     notFound();
   }
 
-  return <div>NextjsPage for slug: {JSON.stringify(slug)}</div>;
+  return page?.sections ? <Page slug={slug} sections={page.sections} /> : <></>;
 }
