@@ -18,6 +18,7 @@ export type Scalars = {
   DateTime: { input: any; output: any; }
   I18NLocaleCode: { input: any; output: any; }
   JSON: { input: any; output: any; }
+  PageSectionsDynamicZoneInput: { input: any; output: any; }
 };
 
 export type IGenAnnouncementBar = {
@@ -76,6 +77,124 @@ export type IGenComponentAtomsButton = {
   isNewTab: Maybe<Scalars['Boolean']['output']>;
   label: Scalars['String']['output'];
   startIcon: Maybe<IGenUploadFile>;
+};
+
+export type IGenComponentAtomsButtonFiltersInput = {
+  and: InputMaybe<Array<InputMaybe<IGenComponentAtomsButtonFiltersInput>>>;
+  ariaLabel: InputMaybe<IGenStringFilterInput>;
+  href: InputMaybe<IGenStringFilterInput>;
+  isNewTab: InputMaybe<IGenBooleanFilterInput>;
+  label: InputMaybe<IGenStringFilterInput>;
+  not: InputMaybe<IGenComponentAtomsButtonFiltersInput>;
+  or: InputMaybe<Array<InputMaybe<IGenComponentAtomsButtonFiltersInput>>>;
+};
+
+export type IGenComponentAtomsButtonInput = {
+  ariaLabel: InputMaybe<Scalars['String']['input']>;
+  endIcon: InputMaybe<Scalars['ID']['input']>;
+  href: InputMaybe<Scalars['String']['input']>;
+  id: InputMaybe<Scalars['ID']['input']>;
+  isNewTab: InputMaybe<Scalars['Boolean']['input']>;
+  label: InputMaybe<Scalars['String']['input']>;
+  startIcon: InputMaybe<Scalars['ID']['input']>;
+};
+
+export type IGenComponentMoleculesCard = {
+  __typename?: 'ComponentMoleculesCard';
+  button: Maybe<IGenComponentAtomsButton>;
+  id: Scalars['ID']['output'];
+  media: Maybe<IGenUploadFile>;
+  subtitle: Maybe<Scalars['String']['output']>;
+  title: Maybe<Scalars['String']['output']>;
+  variant: Maybe<IGenEnum_Componentmoleculescard_Variant>;
+};
+
+export type IGenComponentMoleculesCardFiltersInput = {
+  and: InputMaybe<Array<InputMaybe<IGenComponentMoleculesCardFiltersInput>>>;
+  button: InputMaybe<IGenComponentAtomsButtonFiltersInput>;
+  not: InputMaybe<IGenComponentMoleculesCardFiltersInput>;
+  or: InputMaybe<Array<InputMaybe<IGenComponentMoleculesCardFiltersInput>>>;
+  subtitle: InputMaybe<IGenStringFilterInput>;
+  title: InputMaybe<IGenStringFilterInput>;
+  variant: InputMaybe<IGenStringFilterInput>;
+};
+
+export type IGenComponentMoleculesFooterColumn = {
+  __typename?: 'ComponentMoleculesFooterColumn';
+  id: Scalars['ID']['output'];
+  items: Maybe<Array<Maybe<IGenComponentAtomsButton>>>;
+  title: Maybe<Scalars['String']['output']>;
+};
+
+
+export type IGenComponentMoleculesFooterColumnItemsArgs = {
+  filters: InputMaybe<IGenComponentAtomsButtonFiltersInput>;
+  pagination?: InputMaybe<IGenPaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type IGenComponentMoleculesFooterColumnFiltersInput = {
+  and: InputMaybe<Array<InputMaybe<IGenComponentMoleculesFooterColumnFiltersInput>>>;
+  items: InputMaybe<IGenComponentAtomsButtonFiltersInput>;
+  not: InputMaybe<IGenComponentMoleculesFooterColumnFiltersInput>;
+  or: InputMaybe<Array<InputMaybe<IGenComponentMoleculesFooterColumnFiltersInput>>>;
+  title: InputMaybe<IGenStringFilterInput>;
+};
+
+export type IGenComponentMoleculesFooterColumnInput = {
+  id: InputMaybe<Scalars['ID']['input']>;
+  items: InputMaybe<Array<InputMaybe<IGenComponentAtomsButtonInput>>>;
+  title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type IGenComponentMoleculesHeroSection = {
+  __typename?: 'ComponentMoleculesHeroSection';
+  button: Maybe<IGenComponentAtomsButton>;
+  id: Scalars['ID']['output'];
+  media: Array<Maybe<IGenUploadFile>>;
+  media_connection: Maybe<IGenUploadFileRelationResponseCollection>;
+  subtitle: Maybe<Scalars['String']['output']>;
+  title: Maybe<Scalars['String']['output']>;
+};
+
+
+export type IGenComponentMoleculesHeroSectionMediaArgs = {
+  filters: InputMaybe<IGenUploadFileFiltersInput>;
+  pagination?: InputMaybe<IGenPaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type IGenComponentMoleculesHeroSectionMedia_ConnectionArgs = {
+  filters: InputMaybe<IGenUploadFileFiltersInput>;
+  pagination?: InputMaybe<IGenPaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type IGenComponentMoleculesTextMediaSection = {
+  __typename?: 'ComponentMoleculesTextMediaSection';
+  button: Maybe<IGenComponentAtomsButton>;
+  content: Maybe<Scalars['JSON']['output']>;
+  id: Scalars['ID']['output'];
+  media: Maybe<IGenUploadFile>;
+  subtitle: Maybe<Scalars['String']['output']>;
+  title: Maybe<Scalars['String']['output']>;
+};
+
+export type IGenComponentOrganismsCardsSwiperSection = {
+  __typename?: 'ComponentOrganismsCardsSwiperSection';
+  id: Scalars['ID']['output'];
+  items: Maybe<Array<Maybe<IGenComponentMoleculesCard>>>;
+  maxColumns: Maybe<Scalars['Int']['output']>;
+  subtitle: Maybe<Scalars['String']['output']>;
+  title: Maybe<Scalars['String']['output']>;
+};
+
+
+export type IGenComponentOrganismsCardsSwiperSectionItemsArgs = {
+  filters: InputMaybe<IGenComponentMoleculesCardFiltersInput>;
+  pagination?: InputMaybe<IGenPaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type IGenComponentSeoMetaData = {
@@ -143,6 +262,18 @@ export type IGenDeleteMutationResponse = {
   documentId: Scalars['ID']['output'];
 };
 
+export enum IGenEnum_Componentmoleculescard_Variant {
+  Contained = 'contained',
+  Ghost = 'ghost',
+  Outlined = 'outlined'
+}
+
+export type IGenError = {
+  __typename?: 'Error';
+  code: Scalars['String']['output'];
+  message: Maybe<Scalars['String']['output']>;
+};
+
 export type IGenFileInfoInput = {
   alternativeText: InputMaybe<Scalars['String']['input']>;
   caption: InputMaybe<Scalars['String']['input']>;
@@ -174,7 +305,75 @@ export type IGenFloatFilterInput = {
   startsWith: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type IGenGenericMorph = IGenAnnouncementBar | IGenComponentAtomsButton | IGenComponentSeoMetaData | IGenI18NLocale | IGenPage | IGenReviewWorkflowsWorkflow | IGenReviewWorkflowsWorkflowStage | IGenUploadFile | IGenUsersPermissionsPermission | IGenUsersPermissionsRole | IGenUsersPermissionsUser;
+export type IGenFooter = {
+  __typename?: 'Footer';
+  content: Maybe<Scalars['JSON']['output']>;
+  createdAt: Maybe<Scalars['DateTime']['output']>;
+  documentId: Scalars['ID']['output'];
+  linksColumns: Maybe<Array<Maybe<IGenComponentMoleculesFooterColumn>>>;
+  locale: Maybe<Scalars['String']['output']>;
+  localizations: Array<Maybe<IGenFooter>>;
+  localizations_connection: Maybe<IGenFooterRelationResponseCollection>;
+  logo: Maybe<Scalars['String']['output']>;
+  publishedAt: Maybe<Scalars['DateTime']['output']>;
+  title: Maybe<Scalars['String']['output']>;
+  updatedAt: Maybe<Scalars['DateTime']['output']>;
+};
+
+
+export type IGenFooterLinksColumnsArgs = {
+  filters: InputMaybe<IGenComponentMoleculesFooterColumnFiltersInput>;
+  pagination?: InputMaybe<IGenPaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type IGenFooterInput = {
+  content: InputMaybe<Scalars['JSON']['input']>;
+  linksColumns: InputMaybe<Array<InputMaybe<IGenComponentMoleculesFooterColumnInput>>>;
+  logo: InputMaybe<Scalars['String']['input']>;
+  publishedAt: InputMaybe<Scalars['DateTime']['input']>;
+  title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type IGenFooterRelationResponseCollection = {
+  __typename?: 'FooterRelationResponseCollection';
+  nodes: Array<IGenFooter>;
+};
+
+export type IGenGenericMorph = IGenAnnouncementBar | IGenComponentAtomsButton | IGenComponentMoleculesCard | IGenComponentMoleculesFooterColumn | IGenComponentMoleculesHeroSection | IGenComponentMoleculesTextMediaSection | IGenComponentOrganismsCardsSwiperSection | IGenComponentSeoMetaData | IGenFooter | IGenHeader | IGenI18NLocale | IGenPage | IGenReviewWorkflowsWorkflow | IGenReviewWorkflowsWorkflowStage | IGenUploadFile | IGenUsersPermissionsPermission | IGenUsersPermissionsRole | IGenUsersPermissionsUser;
+
+export type IGenHeader = {
+  __typename?: 'Header';
+  createdAt: Maybe<Scalars['DateTime']['output']>;
+  documentId: Scalars['ID']['output'];
+  items: Maybe<Array<Maybe<IGenComponentAtomsButton>>>;
+  locale: Maybe<Scalars['String']['output']>;
+  localizations: Array<Maybe<IGenHeader>>;
+  localizations_connection: Maybe<IGenHeaderRelationResponseCollection>;
+  logo: Maybe<Scalars['String']['output']>;
+  primaryAction: Maybe<IGenComponentAtomsButton>;
+  publishedAt: Maybe<Scalars['DateTime']['output']>;
+  updatedAt: Maybe<Scalars['DateTime']['output']>;
+};
+
+
+export type IGenHeaderItemsArgs = {
+  filters: InputMaybe<IGenComponentAtomsButtonFiltersInput>;
+  pagination?: InputMaybe<IGenPaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type IGenHeaderInput = {
+  items: InputMaybe<Array<InputMaybe<IGenComponentAtomsButtonInput>>>;
+  logo: InputMaybe<Scalars['String']['input']>;
+  primaryAction: InputMaybe<IGenComponentAtomsButtonInput>;
+  publishedAt: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+export type IGenHeaderRelationResponseCollection = {
+  __typename?: 'HeaderRelationResponseCollection';
+  nodes: Array<IGenHeader>;
+};
 
 export type IGenI18NLocale = {
   __typename?: 'I18NLocale';
@@ -291,6 +490,8 @@ export type IGenMutation = {
   /** Create a new user */
   createUsersPermissionsUser: IGenUsersPermissionsUserEntityResponse;
   deleteAnnouncementBar: Maybe<IGenDeleteMutationResponse>;
+  deleteFooter: Maybe<IGenDeleteMutationResponse>;
+  deleteHeader: Maybe<IGenDeleteMutationResponse>;
   deletePage: Maybe<IGenDeleteMutationResponse>;
   deleteReviewWorkflowsWorkflow: Maybe<IGenDeleteMutationResponse>;
   deleteReviewWorkflowsWorkflowStage: Maybe<IGenDeleteMutationResponse>;
@@ -309,6 +510,8 @@ export type IGenMutation = {
   /** Reset user password. Confirm with a code (resetToken from forgotPassword) */
   resetPassword: Maybe<IGenUsersPermissionsLoginPayload>;
   updateAnnouncementBar: Maybe<IGenAnnouncementBar>;
+  updateFooter: Maybe<IGenFooter>;
+  updateHeader: Maybe<IGenHeader>;
   updatePage: Maybe<IGenPage>;
   updateReviewWorkflowsWorkflow: Maybe<IGenReviewWorkflowsWorkflow>;
   updateReviewWorkflowsWorkflowStage: Maybe<IGenReviewWorkflowsWorkflowStage>;
@@ -356,6 +559,16 @@ export type IGenMutationCreateUsersPermissionsUserArgs = {
 
 
 export type IGenMutationDeleteAnnouncementBarArgs = {
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+
+export type IGenMutationDeleteFooterArgs = {
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+
+export type IGenMutationDeleteHeaderArgs = {
   locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
 
@@ -424,6 +637,20 @@ export type IGenMutationUpdateAnnouncementBarArgs = {
 };
 
 
+export type IGenMutationUpdateFooterArgs = {
+  data: IGenFooterInput;
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+  status?: InputMaybe<IGenPublicationStatus>;
+};
+
+
+export type IGenMutationUpdateHeaderArgs = {
+  data: IGenHeaderInput;
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+  status?: InputMaybe<IGenPublicationStatus>;
+};
+
+
 export type IGenMutationUpdatePageArgs = {
   data: IGenPageInput;
   documentId: Scalars['ID']['input'];
@@ -467,6 +694,7 @@ export type IGenPage = {
   createdAt: Maybe<Scalars['DateTime']['output']>;
   documentId: Scalars['ID']['output'];
   publishedAt: Maybe<Scalars['DateTime']['output']>;
+  sections: Maybe<Array<Maybe<IGenPageSectionsDynamicZone>>>;
   seo: Maybe<IGenComponentSeoMetaData>;
   slug: Scalars['String']['output'];
   title: Scalars['String']['output'];
@@ -494,10 +722,13 @@ export type IGenPageFiltersInput = {
 
 export type IGenPageInput = {
   publishedAt: InputMaybe<Scalars['DateTime']['input']>;
+  sections: InputMaybe<Array<Scalars['PageSectionsDynamicZoneInput']['input']>>;
   seo: InputMaybe<IGenComponentSeoMetaDataInput>;
   slug: InputMaybe<Scalars['String']['input']>;
   title: InputMaybe<Scalars['String']['input']>;
 };
+
+export type IGenPageSectionsDynamicZone = IGenComponentMoleculesHeroSection | IGenComponentMoleculesTextMediaSection | IGenComponentOrganismsCardsSwiperSection | IGenError;
 
 export type IGenPagination = {
   __typename?: 'Pagination';
@@ -522,6 +753,8 @@ export enum IGenPublicationStatus {
 export type IGenQuery = {
   __typename?: 'Query';
   announcementBar: Maybe<IGenAnnouncementBar>;
+  footer: Maybe<IGenFooter>;
+  header: Maybe<IGenHeader>;
   i18NLocale: Maybe<IGenI18NLocale>;
   i18NLocales: Array<Maybe<IGenI18NLocale>>;
   i18NLocales_connection: Maybe<IGenI18NLocaleEntityResponseCollection>;
@@ -548,6 +781,18 @@ export type IGenQuery = {
 
 
 export type IGenQueryAnnouncementBarArgs = {
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+  status?: InputMaybe<IGenPublicationStatus>;
+};
+
+
+export type IGenQueryFooterArgs = {
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+  status?: InputMaybe<IGenPublicationStatus>;
+};
+
+
+export type IGenQueryHeaderArgs = {
   locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
   status?: InputMaybe<IGenPublicationStatus>;
 };
@@ -883,6 +1128,11 @@ export type IGenUploadFileFiltersInput = {
   width: InputMaybe<IGenIntFilterInput>;
 };
 
+export type IGenUploadFileRelationResponseCollection = {
+  __typename?: 'UploadFileRelationResponseCollection';
+  nodes: Array<IGenUploadFile>;
+};
+
 export type IGenUsersPermissionsCreateRolePayload = {
   __typename?: 'UsersPermissionsCreateRolePayload';
   ok: Scalars['Boolean']['output'];
@@ -1097,59 +1347,203 @@ export type IGenUsersPermissionsUserRelationResponseCollection = {
   nodes: Array<IGenUsersPermissionsUser>;
 };
 
-export type IGenQ_Announcement_BarQueryVariables = Exact<{ [key: string]: never; }>;
+export type IGenF_Announcement_BarFragment = { __typename?: 'AnnouncementBar', text: any | null };
+
+export type IGenF_ButtonFragment = { __typename?: 'ComponentAtomsButton', href: string | null, id: string, isNewTab: boolean | null, label: string, ariaLabel: string | null, startIcon: { __typename?: 'UploadFile', url: string, name: string, mime: string, alternativeText: string | null } | null, endIcon: { __typename?: 'UploadFile', url: string, name: string, mime: string, alternativeText: string | null } | null };
+
+export type IGenF_MediaFragment = { __typename?: 'UploadFile', url: string, name: string, mime: string, alternativeText: string | null };
+
+export type IGenAnnouncementBarQueryVariables = Exact<{
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+}>;
 
 
-export type IGenQ_Announcement_BarQuery = { __typename?: 'Query', announcementBar: { __typename?: 'AnnouncementBar', text: any | null } | null };
+export type IGenAnnouncementBarQuery = { __typename?: 'Query', announcementBar: { __typename?: 'AnnouncementBar', text: any | null } | null };
+
+export type IGenQ_FooterQueryVariables = Exact<{
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+}>;
+
+
+export type IGenQ_FooterQuery = { __typename?: 'Query', footer: { __typename?: 'Footer', logo: string | null, title: string | null, content: any | null } | null };
+
+export type IGenQ_HeaderQueryVariables = Exact<{
+  locale: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+}>;
+
+
+export type IGenQ_HeaderQuery = { __typename?: 'Query', header: { __typename?: 'Header', logo: string | null, items: Array<{ __typename?: 'ComponentAtomsButton', href: string | null, id: string, isNewTab: boolean | null, label: string, ariaLabel: string | null, startIcon: { __typename?: 'UploadFile', url: string, name: string, mime: string, alternativeText: string | null } | null, endIcon: { __typename?: 'UploadFile', url: string, name: string, mime: string, alternativeText: string | null } | null } | null> | null, primaryAction: { __typename?: 'ComponentAtomsButton', href: string | null, id: string, isNewTab: boolean | null, label: string, ariaLabel: string | null, startIcon: { __typename?: 'UploadFile', url: string, name: string, mime: string, alternativeText: string | null } | null, endIcon: { __typename?: 'UploadFile', url: string, name: string, mime: string, alternativeText: string | null } | null } | null } | null };
 
 export type IGenQ_LocalesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type IGenQ_LocalesQuery = { __typename?: 'Query', i18NLocales: Array<{ __typename?: 'I18NLocale', name: string | null, code: string | null } | null> };
 
-
-export const Q_Announcement_BarDocument = gql`
-    query q_announcement_bar {
-  announcementBar {
-    text
-  }
+export const F_Announcement_BarFragmentDoc = gql`
+    fragment f_announcement_bar on AnnouncementBar {
+  text
 }
     `;
+export const F_MediaFragmentDoc = gql`
+    fragment f_media on UploadFile {
+  url
+  name
+  mime
+  alternativeText
+}
+    `;
+export const F_ButtonFragmentDoc = gql`
+    fragment f_button on ComponentAtomsButton {
+  href
+  id
+  isNewTab
+  label
+  ariaLabel
+  startIcon {
+    ...f_media
+  }
+  endIcon {
+    ...f_media
+  }
+}
+    ${F_MediaFragmentDoc}`;
+export const AnnouncementBarDocument = gql`
+    query AnnouncementBar($locale: I18NLocaleCode) {
+  announcementBar(locale: $locale) {
+    ...f_announcement_bar
+  }
+}
+    ${F_Announcement_BarFragmentDoc}`;
 
 /**
- * __useQ_Announcement_BarQuery__
+ * __useAnnouncementBarQuery__
  *
- * To run a query within a React component, call `useQ_Announcement_BarQuery` and pass it any options that fit your needs.
- * When your component renders, `useQ_Announcement_BarQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useAnnouncementBarQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAnnouncementBarQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useQ_Announcement_BarQuery({
+ * const { data, loading, error } = useAnnouncementBarQuery({
  *   variables: {
+ *      locale: // value for 'locale'
  *   },
  * });
  */
-export function useQ_Announcement_BarQuery(baseOptions?: Apollo.QueryHookOptions<IGenQ_Announcement_BarQuery, IGenQ_Announcement_BarQueryVariables>) {
+export function useAnnouncementBarQuery(baseOptions?: Apollo.QueryHookOptions<IGenAnnouncementBarQuery, IGenAnnouncementBarQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<IGenQ_Announcement_BarQuery, IGenQ_Announcement_BarQueryVariables>(Q_Announcement_BarDocument, options);
+        return Apollo.useQuery<IGenAnnouncementBarQuery, IGenAnnouncementBarQueryVariables>(AnnouncementBarDocument, options);
       }
-export function useQ_Announcement_BarLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<IGenQ_Announcement_BarQuery, IGenQ_Announcement_BarQueryVariables>) {
+export function useAnnouncementBarLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<IGenAnnouncementBarQuery, IGenAnnouncementBarQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<IGenQ_Announcement_BarQuery, IGenQ_Announcement_BarQueryVariables>(Q_Announcement_BarDocument, options);
+          return Apollo.useLazyQuery<IGenAnnouncementBarQuery, IGenAnnouncementBarQueryVariables>(AnnouncementBarDocument, options);
         }
 // @ts-ignore
-export function useQ_Announcement_BarSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<IGenQ_Announcement_BarQuery, IGenQ_Announcement_BarQueryVariables>): Apollo.UseSuspenseQueryResult<IGenQ_Announcement_BarQuery, IGenQ_Announcement_BarQueryVariables>;
-export function useQ_Announcement_BarSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<IGenQ_Announcement_BarQuery, IGenQ_Announcement_BarQueryVariables>): Apollo.UseSuspenseQueryResult<IGenQ_Announcement_BarQuery | undefined, IGenQ_Announcement_BarQueryVariables>;
-export function useQ_Announcement_BarSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<IGenQ_Announcement_BarQuery, IGenQ_Announcement_BarQueryVariables>) {
+export function useAnnouncementBarSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<IGenAnnouncementBarQuery, IGenAnnouncementBarQueryVariables>): Apollo.UseSuspenseQueryResult<IGenAnnouncementBarQuery, IGenAnnouncementBarQueryVariables>;
+export function useAnnouncementBarSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<IGenAnnouncementBarQuery, IGenAnnouncementBarQueryVariables>): Apollo.UseSuspenseQueryResult<IGenAnnouncementBarQuery | undefined, IGenAnnouncementBarQueryVariables>;
+export function useAnnouncementBarSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<IGenAnnouncementBarQuery, IGenAnnouncementBarQueryVariables>) {
           const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<IGenQ_Announcement_BarQuery, IGenQ_Announcement_BarQueryVariables>(Q_Announcement_BarDocument, options);
+          return Apollo.useSuspenseQuery<IGenAnnouncementBarQuery, IGenAnnouncementBarQueryVariables>(AnnouncementBarDocument, options);
         }
-export type Q_Announcement_BarQueryHookResult = ReturnType<typeof useQ_Announcement_BarQuery>;
-export type Q_Announcement_BarLazyQueryHookResult = ReturnType<typeof useQ_Announcement_BarLazyQuery>;
-export type Q_Announcement_BarSuspenseQueryHookResult = ReturnType<typeof useQ_Announcement_BarSuspenseQuery>;
-export type Q_Announcement_BarQueryResult = Apollo.QueryResult<IGenQ_Announcement_BarQuery, IGenQ_Announcement_BarQueryVariables>;
+export type AnnouncementBarQueryHookResult = ReturnType<typeof useAnnouncementBarQuery>;
+export type AnnouncementBarLazyQueryHookResult = ReturnType<typeof useAnnouncementBarLazyQuery>;
+export type AnnouncementBarSuspenseQueryHookResult = ReturnType<typeof useAnnouncementBarSuspenseQuery>;
+export type AnnouncementBarQueryResult = Apollo.QueryResult<IGenAnnouncementBarQuery, IGenAnnouncementBarQueryVariables>;
+export const Q_FooterDocument = gql`
+    query q_footer($locale: I18NLocaleCode) {
+  footer(locale: $locale) {
+    logo
+    title
+    content
+  }
+}
+    `;
+
+/**
+ * __useQ_FooterQuery__
+ *
+ * To run a query within a React component, call `useQ_FooterQuery` and pass it any options that fit your needs.
+ * When your component renders, `useQ_FooterQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useQ_FooterQuery({
+ *   variables: {
+ *      locale: // value for 'locale'
+ *   },
+ * });
+ */
+export function useQ_FooterQuery(baseOptions?: Apollo.QueryHookOptions<IGenQ_FooterQuery, IGenQ_FooterQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<IGenQ_FooterQuery, IGenQ_FooterQueryVariables>(Q_FooterDocument, options);
+      }
+export function useQ_FooterLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<IGenQ_FooterQuery, IGenQ_FooterQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<IGenQ_FooterQuery, IGenQ_FooterQueryVariables>(Q_FooterDocument, options);
+        }
+// @ts-ignore
+export function useQ_FooterSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<IGenQ_FooterQuery, IGenQ_FooterQueryVariables>): Apollo.UseSuspenseQueryResult<IGenQ_FooterQuery, IGenQ_FooterQueryVariables>;
+export function useQ_FooterSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<IGenQ_FooterQuery, IGenQ_FooterQueryVariables>): Apollo.UseSuspenseQueryResult<IGenQ_FooterQuery | undefined, IGenQ_FooterQueryVariables>;
+export function useQ_FooterSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<IGenQ_FooterQuery, IGenQ_FooterQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<IGenQ_FooterQuery, IGenQ_FooterQueryVariables>(Q_FooterDocument, options);
+        }
+export type Q_FooterQueryHookResult = ReturnType<typeof useQ_FooterQuery>;
+export type Q_FooterLazyQueryHookResult = ReturnType<typeof useQ_FooterLazyQuery>;
+export type Q_FooterSuspenseQueryHookResult = ReturnType<typeof useQ_FooterSuspenseQuery>;
+export type Q_FooterQueryResult = Apollo.QueryResult<IGenQ_FooterQuery, IGenQ_FooterQueryVariables>;
+export const Q_HeaderDocument = gql`
+    query q_header($locale: I18NLocaleCode) {
+  header(locale: $locale) {
+    logo
+    items {
+      ...f_button
+    }
+    primaryAction {
+      ...f_button
+    }
+  }
+}
+    ${F_ButtonFragmentDoc}`;
+
+/**
+ * __useQ_HeaderQuery__
+ *
+ * To run a query within a React component, call `useQ_HeaderQuery` and pass it any options that fit your needs.
+ * When your component renders, `useQ_HeaderQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useQ_HeaderQuery({
+ *   variables: {
+ *      locale: // value for 'locale'
+ *   },
+ * });
+ */
+export function useQ_HeaderQuery(baseOptions?: Apollo.QueryHookOptions<IGenQ_HeaderQuery, IGenQ_HeaderQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<IGenQ_HeaderQuery, IGenQ_HeaderQueryVariables>(Q_HeaderDocument, options);
+      }
+export function useQ_HeaderLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<IGenQ_HeaderQuery, IGenQ_HeaderQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<IGenQ_HeaderQuery, IGenQ_HeaderQueryVariables>(Q_HeaderDocument, options);
+        }
+// @ts-ignore
+export function useQ_HeaderSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<IGenQ_HeaderQuery, IGenQ_HeaderQueryVariables>): Apollo.UseSuspenseQueryResult<IGenQ_HeaderQuery, IGenQ_HeaderQueryVariables>;
+export function useQ_HeaderSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<IGenQ_HeaderQuery, IGenQ_HeaderQueryVariables>): Apollo.UseSuspenseQueryResult<IGenQ_HeaderQuery | undefined, IGenQ_HeaderQueryVariables>;
+export function useQ_HeaderSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<IGenQ_HeaderQuery, IGenQ_HeaderQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<IGenQ_HeaderQuery, IGenQ_HeaderQueryVariables>(Q_HeaderDocument, options);
+        }
+export type Q_HeaderQueryHookResult = ReturnType<typeof useQ_HeaderQuery>;
+export type Q_HeaderLazyQueryHookResult = ReturnType<typeof useQ_HeaderLazyQuery>;
+export type Q_HeaderSuspenseQueryHookResult = ReturnType<typeof useQ_HeaderSuspenseQuery>;
+export type Q_HeaderQueryResult = Apollo.QueryResult<IGenQ_HeaderQuery, IGenQ_HeaderQueryVariables>;
 export const Q_LocalesDocument = gql`
     query q_locales {
   i18NLocales {

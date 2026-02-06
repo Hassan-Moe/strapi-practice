@@ -79,7 +79,7 @@ export default function Button({
     lg: "h-12 px-6 text-lg gap-2.5",
   };
 
-  const paginationSizes = {
+  const squareSizes = {
     sm: "w-9 h-9 text-sm",
     md: "w-10 h-10 text-base",
     lg: "w-11 h-11 text-lg",
@@ -95,7 +95,7 @@ export default function Button({
     "inline-flex items-center justify-center font-medium rounded-lg border transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2";
 
   const isSquare = variant === "square";
-  const sizeStyles = isSquare ? paginationSizes[size] : sizes[size];
+  const sizeStyles = isSquare ? squareSizes[size] : sizes[size];
   const variantStyles = variants[variant];
   const isDisabled = disabled || loading;
 
